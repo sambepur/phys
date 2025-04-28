@@ -1,5 +1,6 @@
 from tkinter import Label, Tk
 from asyncwindow import AsyncWindow
+import tasks
 import typing
 import asyncio
 
@@ -15,7 +16,6 @@ class Table(AsyncWindow):
             label.grid(column=t, row=0)
             self.labels.append(label)
 
-    async def update(self, event):
-        for label, coroutine in self.labels, self.coroutines:
-            label.configure(text=await self.loop.create_task(coroutine()))
-                
+    async def update(self):
+        for coroutine, label in self.coroutines, self.labels:
+            label.config(text= await self.loop.create_task(coroutine()))

@@ -1,14 +1,16 @@
 from tkinter import *
 from decimal import getcontext
 from coordinates import *
+import tasks
 from motion import *
-from hid import Table
+from table import Table, AsyncTableController
 import asyncio
 
 root = Tk()
-#hid_root = Tk()
-#hid_root.title("Values")
 getcontext().prec = 20
+
+controller = AsyncTableController()
+controller.draw()
 
 w = 1000
 h = 1000
@@ -33,5 +35,5 @@ print(ref.current())
 print(ref.to_real())
 #Motion.draw_trajectory(canvas, 10, 20)
 dot = canvas.create_oval(300, 300, 300, 300)
-root.bind("<Motion>", Coords.mouse_coords)
+root.bind("<Motion>", lambda: asyncio)
 root.mainloop()
