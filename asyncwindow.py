@@ -8,4 +8,4 @@ class AsyncWindow(Tk):
         self.root = Tk()
         self.root.title(name)
         self.root.geometry(width+"x"+height)
-        self.coroutines = coroutines        
+        self.coroutines = coroutines

@@ -16,6 +16,7 @@ class Table(AsyncWindow):
             label.grid(column=t, row=0)
             self.labels.append(label)
 
-    async def update(self):
+    async def update(self, event):
         for coroutine, label in self.coroutines, self.labels:
-            label.config(text= await self.loop.create_task(coroutine()))
+            label.config(text= await self.loop.create_task(coroutine(event)))
+
