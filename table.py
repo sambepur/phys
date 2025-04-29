@@ -6,7 +6,7 @@ import asyncio
 
 class Table(AsyncWindow):
     def __init__(self, loop: asyncio.unix_events._UnixSelectorEventLoop, name: str, width: str, height: str, *coroutines: typing.Coroutine):
-        super().__init__(self, loop, name, width, height, coroutines)
+        super().__init__(loop, name, width, height, coroutines)
         self.labels: list[Label] = list()
         self.root.mainloop()
 
